@@ -25,9 +25,20 @@ public class App
                 e.printStackTrace();
             }
             Date date = new Date();
-            String str=String.format("%s [count: %d]-%s",new Timestamp(date.getTime()),i,msg);
-            System.out.println(str);
+            String tmp = String.format("%s", new Timestamp(date.getTime()));
+            String str = String.format("%s [count: %d]-%s", new Timestamp(date.getTime()), i, msg);
+            System.out.println(padRightZeros(str, 23));
         }
         
+    }
+
+    public static String padRightZeros(String inputString, int length) {
+        if (inputString.length() >= length) {
+            return inputString;
+        }
+        StringBuilder sb = new StringBuilder(inputString);
+        if(length > inputString.length()) sb.append("0");
+    
+        return sb.toString();
     }
 }
