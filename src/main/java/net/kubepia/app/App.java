@@ -25,8 +25,9 @@ public class App
                 e.printStackTrace();
             }
             Date date = new Date();
-            String str = String.format("%s [count: %d]-%s", new Timestamp(date.getTime()), i, msg);
-            System.out.println(padRightZeros(str, 23));
+            String time = padRightZeros(String.format("%s", new Timestamp(date.getTime())), 23);
+            String str = String.format(" [count: %d]-%s", i, msg);
+            System.out.println(time + str);
         }
         
     }
@@ -36,7 +37,9 @@ public class App
             return inputString;
         }
         StringBuilder sb = new StringBuilder(inputString);
-        if(length > inputString.length()) sb.append("0");
+        if(length - 1 == inputString.length()) sb.append("0");
+        if(length - 2 == inputString.length()) sb.append("00");
+        if(length - 4 == inputString.length()) sb.append(".000");
     
         return sb.toString();
     }
