@@ -25,7 +25,6 @@ public class App
                 e.printStackTrace();
             }
             Date date = new Date();
-            String tmp = String.format("%s", new Timestamp(date.getTime()));
             String str = String.format("%s [count: %d]-%s", new Timestamp(date.getTime()), i, msg);
             System.out.println(padRightZeros(str, 23));
         }
